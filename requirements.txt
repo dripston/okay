@@ -1,4 +1,4 @@
-torch==2.2.2
+torch==2.6.0
 absl-py==2.2.2
 aiofiles==24.1.0
 aiohappyeyeballs==2.5.0
@@ -153,7 +153,6 @@ tensorflow-probability==0.25.0
 threadpoolctl==3.6.0
 tokenizers==0.21.0
 toolz==1.0.0
-torch==2.6.0
 torch-geometric==2.6.1
 torch_cluster==1.6.3
 torch_scatter==2.1.2
