@@ -1,0 +1,9 @@
+# Python virtual environment
+venv/
+lastoneweathervenv/
+# Large model files
+*.joblib
+# Python cache files
+__pycache__/
+*.py[cod]
+*.class

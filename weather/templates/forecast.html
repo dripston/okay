@@ -1,0 +1,180 @@
+<!-- Add this after your current forecast cards section -->
+<div class="forecast-charts">
+    <div class="chart-row">
+        <div class="chart-container full-width-chart">
+            <h3>Temperature Forecast (7 Days)</h3>
+            <canvas id="temp-chart"></canvas>
+        </div>
+    </div>
+    
+    <div class="chart-row">
+        <div class="chart-container">
+            <h3>Precipitation Forecast</h3>
+            <canvas id="precip-chart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Wind Speed Forecast</h3>
+            <canvas id="wind-chart"></canvas>
+        </div>
+    </div>
+    
+    <div class="chart-row">
+        <div class="chart-container">
+            <h3>Humidity Trends</h3>
+            <canvas id="humidity-chart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Pressure Trends</h3>
+            <canvas id="pressure-chart"></canvas>
+        </div>
+    </div>
+</div>
+
+<!-- Add this for the weather insights section -->
+<div class="weather-insights">
+    <div class="insights-header">
+        <h2>Weather Insights</h2>
+    </div>
+    <div class="insights-grid">
+        <div class="insight-card">
+            <div class="insight-icon">
+                <i class="fas fa-temperature-high"></i>
+            </div>
+            <div class="insight-title">Heat Index</div>
+            <div class="insight-value">32°C</div>
+            <div class="insight-description">Feels hotter due to humidity. Take precautions during outdoor activities.</div>
+        </div>
+        <div class="insight-card">
+            <div class="insight-icon">
+                <i class="fas fa-wind"></i>
+            </div>
+            <div class="insight-title">Wind Chill</div>
+            <div class="insight-value">18°C</div>
+            <div class="insight-description">The "feels like" temperature due to wind effects.</div>
+        </div>
+        <div class="insight-card">
+            <div class="insight-icon">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="insight-title">UV Index</div>
+            <div class="insight-value">7</div>
+            <div class="insight-description">High UV levels. Wear sunscreen and protective clothing.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this for the weather alerts section -->
+<div class="weather-alerts">
+    <div class="insights-header">
+        <h2>Weather Alerts</h2>
+    </div>
+    <div id="weather-alerts-container">
+        <div class="alert-card warning">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Heavy Rain Warning</div>
+                <div class="alert-description">Heavy rainfall expected in the next 24 hours. Potential for localized flooding in low-lying areas.</div>
+                <div class="alert-time">Issued: Today, 08:30 AM</div>
+            </div>
+        </div>
+        <div class="alert-card info">
+            <div class="alert-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="alert-content">
+                <div class="alert-title">Air Quality Advisory</div>
+                <div class="alert-description">Moderate air quality levels. Sensitive groups should consider limiting prolonged outdoor exposure.</div>
+                <div class="alert-time">Issued: Yesterday, 06:15 PM</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add this for the historical comparison section -->
+<div class="historical-comparison">
+    <div class="insights-header">
+        <h2>Historical Weather Comparison</h2>
+    </div>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Today</th>
+                <th>Historical Average</th>
+                <th>Difference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>High Temperature</td>
+                <td>28°C</td>
+                <td>25°C</td>
+                <td class="above-average">+3°C</td>
+            </tr>
+            <tr>
+                <td>Low Temperature</td>
+                <td>18°C</td>
+                <td>16°C</td>
+                <td class="above-average">+2°C</td>
+            </tr>
+            <tr>
+                <td>Precipitation</td>
+                <td>5mm</td>
+                <td>8mm</td>
+                <td class="below-average">-3mm</td>
+            </tr>
+            <tr>
+                <td>Wind Speed</td>
+                <td>12 km/h</td>
+                <td>15 km/h</td>
+                <td class="below-average">-3 km/h</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td>65%</td>
+                <td>60%</td>
+                <td class="above-average">+5%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Update your forecast cards to match this structure -->
+<div class="forecast-cards">
+    <!-- Repeat this for each day -->
+    <div class="forecast-card">
+        <div class="forecast-card-header">
+            <div class="forecast-date">Monday, Jun 12</div>
+        </div>
+        <div class="forecast-card-body">
+            <div class="forecast-icon">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="forecast-temp">28°C</div>
+            <div class="forecast-description">Sunny</div>
+        </div>
+        <div class="forecast-card-footer">
+            <div class="forecast-metrics">
+                <div class="metric">
+                    <i class="fas fa-tint"></i>
+                    <span class="metric-value">10%</span>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-wind"></i>
+                    <span class="metric-value">12 km/h</span>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-sun"></i>
+                    <span class="metric-value">UV: 7</span>
+                </div>
+                <div class="metric">
+                    <i class="fas fa-water"></i>
+                    <span class="metric-value">65%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Repeat for other days -->
+</div>

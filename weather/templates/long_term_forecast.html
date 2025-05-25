@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Month Weather Forecast - Bangalore</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/long_term.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Namma Weather AI</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('short_term_forecast') }}">7-Day Forecast</a></li>
+                    <li><a href="{{ url_for('long_term.long_term_forecast') }}" class="active">6-Month Forecast</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1 class="forecast-title">6-Month Weather Forecast for Bangalore</h1>
+            <p class="forecast-subtitle">Powered by our Ensemble Prediction System</p>
+            <div class="last-updated">
+                <p>Last updated: <span id="last-update-time">Loading...</span></p>
+                <p>Next update in: <span id="next-update-countdown">--</span></p>
+            </div>
+
+            <div class="loading-container">
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading 6-month forecast data...</p>
+                </div>
+
+                <div id="forecast-error" style="display: none;">
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Unable to load forecast data. Please try again later.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="forecast-charts">
+                <div class="chart-card">
+                    <h3><i class="fas fa-temperature-high"></i> Temperature Trends</h3>
+                    <div class="chart-container">
+                        <canvas id="temperature-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <h3><i class="fas fa-cloud-rain"></i> Precipitation Forecast</h3>
+                    <div class="chart-container">
+                        <canvas id="precipitation-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="monthly-forecast">
+                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Monthly Breakdown</h2>
+                <div id="monthly-forecast-cards" class="monthly-cards-container">
+                    <!-- Monthly forecast cards will be inserted here -->
+                </div>
+            </section>
+
+            <section class="seasonal-highlights">
+                <h2 class="section-title"><i class="fas fa-sun"></i> Seasonal Highlights</h2>
+                <div id="seasonal-highlights-container" class="highlights-container">
+                    <!-- Seasonal highlights will be inserted here -->
+                </div>
+            </section>
+
+            <section class="weather-alerts-section">
+                <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> Weather Alerts</h2>
+                <div id="weather-alerts-container" class="alerts-container">
+                    <!-- Weather alerts will be inserted here -->
+                </div>
+                <p id="no-alerts-message" class="no-alerts" style="display: none;">No significant weather alerts for the next 6 months.</p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Namma Weather AI</h3>
+                    <p>Intelligent weather forecasting for Bangalore</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('short_term_forecast') }}">7-Day Forecast</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Email: info@nammaweatherai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Namma Weather AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="{{ url_for('static', filename='js/ui_helpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weather_conditions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/long_term_charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/long_term_data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/long_term_forecast.js') }}"></script>
+</body>
+</html>

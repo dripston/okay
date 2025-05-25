@@ -1,0 +1,528 @@
+/* Long-term forecast specific styles */
+
+/* Modern color theme with purple accents - matching forecast.css */
+:root {
+    --primary-purple: #8a2be2;
+    --light-purple: #b088f9;
+    --dark-purple: #5d1a9e;
+    --accent-teal: #00e5ff;
+    --accent-teal-light: #80ffff;
+    --black-bg: #0a0a0a;
+    --dark-card: rgba(20, 20, 30, 0.85);
+    --light-text: #f0f0f0;
+    --medium-text: #c0c0c0;
+    --card-border: rgba(138, 43, 226, 0.3);
+    --glass-effect: rgba(255, 255, 255, 0.05);
+}
+
+/* Base styles and typography */
+body.dark-theme {
+    background-color: var(--black-bg);
+    background-image: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background-attachment: fixed;
+    color: var(--light-text);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+}
+
+/* Enhanced header with animation */
+.forecast-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--light-purple), var(--accent-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.forecast-subtitle {
+    font-size: 18px;
+    color: var(--medium-text);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.last-updated {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--medium-text);
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.last-updated::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-purple), transparent);
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Loading animation */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid var(--accent-teal);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error message styling */
+.error-message {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 59, 48, 0.1);
+    border-left: 4px solid #FF3B30;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(255, 59, 48, 0.2);
+}
+
+.error-message i {
+    color: #FF3B30;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    text-shadow: 0 0 10px rgba(255, 59, 48, 0.3);
+}
+
+/* Chart section styling */
+.forecast-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.chart-card {
+    background: var(--dark-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.chart-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent);
+    pointer-events: none;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.chart-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--light-text);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.chart-card h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-teal);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 1rem;
+}
+
+/* Chart canvas styling - fixed to prevent stretching */
+#temperature-chart, #precipitation-chart {
+    height: 100%;
+    width: 100%;
+}
+
+/* Chart legend styling */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Temperature legend colors */
+.legend-min-temp {
+    background-color: #30B0C7;
+}
+
+.legend-avg-temp {
+    background-color: #FF9500;
+}
+
+.legend-max-temp {
+    background-color: #FF3B30;
+}
+
+/* Precipitation legend color */
+.legend-precipitation {
+    background-color: #4FC3F7;
+}
+
+/* Monthly breakdown styling */
+.monthly-breakdown {
+    margin-top: 3rem;
+}
+
+.monthly-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+}
+
+.monthly-card {
+    background: rgba(30, 30, 45, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(100, 100, 180, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Temperature chart specific styling */
+#temperature-chart {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Precipitation chart specific styling */
+#precipitation-chart {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Chart legend styling */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Temperature legend colors */
+.legend-min-temp {
+    background-color: #30B0C7;
+}
+
+.legend-avg-temp {
+    background-color: #FF9500;
+}
+
+.legend-max-temp {
+    background-color: #FF3B30;
+}
+
+/* Precipitation legend color */
+.legend-precipitation {
+    background-color: #4FC3F7;
+}
+.chart-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent);
+    pointer-events: none;
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.chart-card h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--light-text);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.chart-card h3 i {
+    margin-right: 0.5rem;
+    color: var(--accent-teal);
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 32px;
+    margin: 2.5rem 0 1.5rem 0;
+    color: var(--light-purple);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-purple), transparent);
+    border-radius: 3px;
+}
+
+.section-title i {
+    margin-right: 0.75rem;
+    color: var(--accent-teal);
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+}
+
+/* Monthly cards */
+.monthly-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 3rem;
+}
+
+.monthly-card {
+    background: rgba(30, 30, 45, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(100, 100, 180, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.monthly-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(120, 120, 255, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.monthly-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(120, 120, 255, 0.3);
+    border-color: rgba(120, 120, 255, 0.4);
+}
+
+.monthly-card h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.monthly-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.monthly-temp, .monthly-precip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.monthly-card:hover .monthly-temp,
+.monthly-card:hover .monthly-precip {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.monthly-temp i {
+    color: #FF9500;
+    text-shadow: 0 0 10px rgba(255, 149, 0, 0.3);
+}
+
+.monthly-precip i {
+    color: #4FC3F7;
+    text-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+}
+
+/* Seasonal highlights and alerts */
+.highlights-container, .alerts-container {
+    background: var(--dark-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.highlights-container::after, .alerts-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent);
+    pointer-events: none;
+}
+
+.highlights-container:hover, .alerts-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.no-alerts {
+    text-align: center;
+    color: var(--medium-text);
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .forecast-charts {
+        grid-template-columns: 1fr;
+    }
+    
+    .monthly-cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+    
+    .forecast-title {
+        font-size: 36px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+}

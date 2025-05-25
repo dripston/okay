@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short-Term Forecast - Namma Weather AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forecast.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Namma Weather AI</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/short-term-forecast" class="active">Short-Term Forecast</a></li>
+                    <li><a href="/forecast">Forecast</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="forecast-header">
+            <h1>7-Day Weather Forecast for Bangalore</h1>
+            <p>Powered by our Bayesian Neural Network model</p>
+            <!-- Update status will be added here by JavaScript -->
+            <div id="update-status" class="update-status">
+                <p>Last updated: <span id="last-update-time">Loading...</span></p>
+                <p>Next update in: <span id="next-update-countdown">Loading...</span></p>
+                <div id="forecast-error" class="error-message" style="display: none;">
+                    <p><i class="fas fa-exclamation-triangle"></i> Unable to retrieve forecast data. Our prediction model is currently unavailable.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="current-weather">
+            <h2>Current Weather</h2>
+            <div class="weather-card" id="current-weather-card">
+                <div class="weather-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="weather-info">
+                    <h3>Today, <span id="current-date">Loading...</span></h3>
+                    <p class="temperature">-- °C</p>
+                    <div class="weather-details">
+                        <div class="detail">
+                            <i class="fas fa-tint"></i>
+                            <span>Humidity: --%</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-wind"></i>
+                            <span>Wind: -- m/s</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-compress-alt"></i>
+                            <span>Pressure: -- hPa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="forecast-content">
+            <h2>7-Day Forecast</h2>
+            <div class="forecast-cards" id="forecast-cards">
+                <!-- Cards will be populated by JavaScript -->
+                <div class="loading">Loading forecast data...</div>
+            </div>
+            
+            <div class="forecast-charts">
+                <div class="chart-container">
+                    <h3>Temperature Forecast</h3>
+                    <canvas id="temperature-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Precipitation Forecast</h3>
+                    <canvas id="precipitation-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="forecast-details">
+            <h2>Forecast Details</h2>
+            <div class="details-container">
+                <div class="details-card">
+                    <h3>Model Information</h3>
+                    <p>Our short-term forecast uses a Bayesian Neural Network model trained on historical weather data from Bangalore. This model accounts for uncertainty in predictions and provides more reliable forecasts.</p>
+                </div>
+                <div class="details-card">
+                    <h3>Data Sources</h3>
+                    <p>We combine data from multiple reliable sources including meteorological stations, satellite observations, and numerical weather prediction models to ensure the highest accuracy.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Namma Weather AI</h3>
+                    <p>Intelligent weather forecasting for Bangalore</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/short-term-forecast">Short-Term Forecast</a></li>
+                        <li><a href="/forecast">Forecast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Email: info@nammaweatherai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Namma Weather AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Add these before your main script in the correct order -->
+    <script src="{{ url_for('static', filename='js/weather_conditions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ui_helpers.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weather_charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/weather_alerts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/short_term_forecast.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/forecast_data.js') }}"></script>
+</body>
+</html>
+
+<div class="site-logo">
+    <svg width="120" height="60" viewBox="0 0 120 60">
+        <!-- Sun -->
+        <circle cx="80" cy="30" r="15" fill="#FF9500" />
+        <circle cx="80" cy="30" r="20" fill="none" stroke="#FF9500" stroke-width="2" stroke-dasharray="2,3" />
+        
+        <!-- Cloud -->
+        <path d="M20,40 C10,40 10,30 20,30 C20,20 40,20 40,30 C50,20 70,30 60,40 Z" 
+              fill="#30B0C7" stroke="#147EFB" stroke-width="2" />
+        
+        <!-- Text -->
+        <text x="60" y="50" font-family="Arial" font-size="14" text-anchor="middle" fill="#5856D6" font-weight="bold">WeatherCast</text>
+    </svg>
+</div>
+
+<nav class="main-nav">
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('short_term_forecast') }}" class="active">7-Day Forecast</a></li>
+        <li><a href="{{ url_for('long_term.long_term_forecast') }}">6-Month Forecast</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+    </ul>
+</nav>

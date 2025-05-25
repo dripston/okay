@@ -1,0 +1,97 @@
+.site-logo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.site-logo svg {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.site-logo svg:hover {
+    transform: scale(1.05);
+}
+
+/* Weather condition styling improvements */
+.forecast-condition {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 8px 0;
+    color: #333;
+}
+
+/* Specific condition styling */
+.condition-sunny {
+    color: #FF9500;
+}
+
+.condition-partly-cloudy {
+    color: #34C759;
+}
+
+.condition-cloudy {
+    color: #8E8E93;
+}
+
+.condition-light-rain {
+    color: #30B0C7;
+}
+
+.condition-rain {
+    color: #147EFB;
+}
+
+.condition-heavy-rain {
+    color: #5856D6;
+}
+
+.forecast-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #5856D6;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4845c2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background-color: #34C759;
+    color: white;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #2db14e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,563 @@
+/* Forecast Page Specific Styles */
+
+.forecast-header {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.forecast-header h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: var(--true-turquoise);
+}
+
+.forecast-header p {
+    font-size: 18px;
+    color: var(--paper-white);
+    opacity: 0.8;
+}
+
+.current-weather {
+    margin-bottom: 40px;
+}
+
+.current-weather h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--supporting-blue);
+}
+
+.weather-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.weather-icon {
+    font-size: 60px;
+    margin-right: 30px;
+    color: var(--true-turquoise);
+}
+
+.weather-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--paper-white);
+}
+
+.temperature {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--supporting-blue);
+}
+
+.weather-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.detail {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.detail i {
+    margin-right: 8px;
+    color: var(--true-turquoise);
+}
+
+.forecast-content {
+    margin-bottom: 40px;
+}
+
+.forecast-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--supporting-blue);
+}
+
+/* Remove generate forecast button */
+/* Modern color theme with purple accents */
+:root {
+    --primary-purple: #8a2be2;
+    --light-purple: #b088f9;
+    --dark-purple: #5d1a9e;
+    --accent-teal: #00e5ff;
+    --accent-teal-light: #80ffff;
+    --black-bg: #0a0a0a;
+    --dark-card: rgba(20, 20, 30, 0.85);
+    --light-text: #f0f0f0;
+    --medium-text: #c0c0c0;
+    --card-border: rgba(138, 43, 226, 0.3);
+    --glass-effect: rgba(255, 255, 255, 0.05);
+}
+
+/* Base styles and typography */
+body {
+    background-color: var(--black-bg);
+    background-image: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    background-attachment: fixed;
+    color: var(--light-text);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Enhanced header with animation */
+.forecast-header {
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.forecast-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-purple), transparent);
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.forecast-header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--light-purple), var(--accent-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.forecast-header p {
+    font-size: 18px;
+    color: var(--medium-text);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* Modern glass-morphism cards */
+.weather-card {
+    background: var(--dark-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.weather-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), transparent);
+    pointer-events: none;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.weather-icon {
+    font-size: 70px;
+    margin-right: 40px;
+    color: var(--accent-teal);
+    text-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.weather-info h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--light-text);
+    font-weight: 600;
+}
+
+.temperature {
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--light-purple), var(--accent-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.weather-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.detail {
+    margin-right: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    color: var(--medium-text);
+    transition: all 0.2s ease;
+}
+
+.detail:hover {
+    color: var(--light-text);
+    transform: translateX(5px);
+}
+
+.detail i {
+    margin-right: 10px;
+    color: var(--accent-teal);
+    font-size: 18px;
+}
+
+/* Enhanced forecast cards with hover effects */
+.forecast-content h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--light-purple);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.forecast-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-purple), transparent);
+    border-radius: 3px;
+}
+
+.forecast-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Enhanced forecast card styles with dark purple theme */
+.forecast-card {
+    background: rgba(30, 30, 45, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(100, 100, 180, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+/* Add subtle glow effect on hover */
+.forecast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
+                0 0 15px rgba(120, 120, 255, 0.3);
+    border-color: rgba(120, 120, 255, 0.4);
+}
+
+/* Weather-specific background gradients with purple theme */
+.forecast-card[data-condition="Sunny"] {
+    background: linear-gradient(135deg, rgba(60, 50, 100, 0.7) 0%, rgba(40, 35, 80, 0.7) 100%);
+}
+
+.forecast-card[data-condition="Partly Cloudy"] {
+    background: linear-gradient(135deg, rgba(50, 45, 95, 0.7) 0%, rgba(35, 30, 75, 0.7) 100%);
+}
+
+.forecast-card[data-condition="Cloudy"] {
+    background: linear-gradient(135deg, rgba(45, 40, 90, 0.7) 0%, rgba(30, 25, 70, 0.7) 100%);
+}
+
+.forecast-card[data-condition="Rain"], 
+.forecast-card[data-condition="Light Rain"] {
+    background: linear-gradient(135deg, rgba(40, 35, 85, 0.7) 0%, rgba(25, 20, 65, 0.7) 100%);
+}
+
+.forecast-card[data-condition="Heavy Rain"] {
+    background: linear-gradient(135deg, rgba(35, 30, 80, 0.7) 0%, rgba(20, 15, 60, 0.7) 100%);
+}
+
+/* Enhanced forecast icon with glow effect */
+.forecast-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.forecast-icon i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.forecast-card:hover .forecast-icon i {
+    transform: scale(1.1);
+}
+
+/* Icon-specific colors and effects */
+.forecast-icon i.fa-sun {
+    color: #FFB74D;
+    text-shadow: 0 0 15px rgba(255, 183, 77, 0.5);
+}
+
+.forecast-icon i.fa-cloud-sun {
+    color: #90CAF9;
+    text-shadow: 0 0 15px rgba(144, 202, 249, 0.5);
+}
+
+.forecast-icon i.fa-cloud {
+    color: #B0BEC5;
+    text-shadow: 0 0 15px rgba(176, 190, 197, 0.5);
+}
+
+.forecast-icon i.fa-cloud-rain,
+.forecast-icon i.fa-cloud-sun-rain {
+    color: #4FC3F7;
+    text-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+}
+
+.forecast-icon i.fa-cloud-showers-heavy {
+    color: #2979FF;
+    text-shadow: 0 0 15px rgba(41, 121, 255, 0.5);
+}
+
+/* Enhanced temperature display */
+.forecast-temp {
+    margin: 10px 0;
+    position: relative;
+}
+
+.temp-avg {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover .temp-avg {
+    transform: scale(1.05);
+    color: #a090ff;
+}
+
+.temp-range {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.temp-high {
+    color: #FF7043;
+}
+
+.temp-low {
+    color: #64B5F6;
+}
+
+/* Enhanced metrics section */
+.forecast-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover .metric {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.metric i {
+    color: #a090ff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover .metric i {
+    transform: scale(1.2);
+}
+
+/* Gusty wind indicator */
+.gusty-wind {
+    position: relative;
+    overflow: hidden;
+}
+
+.gusty-badge {
+    font-size: 10px;
+    background: rgba(255, 152, 0, 0.2);
+    color: #FF9800;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+/* Additional metrics styling */
+.additional-metrics {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 10px 0;
+}
+
+.comfort-level {
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover .comfort-level {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Comfort level colors */
+.comfort-extreme {
+    background: rgba(244, 67, 54, 0.1);
+    color: #F44336;
+}
+
+.comfort-bad {
+    background: rgba(255, 152, 0, 0.1);
+    color: #FF9800;
+}
+
+.comfort-normal {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+}
+
+.comfort-good {
+    background: rgba(33, 150, 243, 0.1);
+    color: #2196F3;
+}
+
+.comfort-cold {
+    background: rgba(3, 169, 244, 0.1);
+    color: #03A9F4;
+}
+
+/* Day recommendation styling */
+.day-recommendation {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(120, 120, 255, 0.1);
+    border-left: 3px solid #a090ff;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover .day-recommendation {
+    background: rgba(120, 120, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.recommendation i {
+    margin-right: 5px;
+    color: #a090ff;
+}
+
+/* Forecast date styling */
+.forecast-date {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Forecast condition text */
+.forecast-condition {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Add a subtle purple glow to the cards */
+.forecast-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(120, 120, 255, 0.15), transparent 70%);
+    pointer-events: none;
+}

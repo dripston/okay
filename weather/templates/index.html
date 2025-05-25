@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Weather AI - Bangalore Weather Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Namma Weather AI</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="active">Home</a></li>
+                    <li><a href="{{ url_for('short_term_forecast') }}">7-Day Forecast</a></li>
+                    <li><a href="{{ url_for('long_term.long_term_forecast') }}">6-Month Forecast</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Intelligent Weather Forecasting for Bangalore</h1>
+                <p>Powered by advanced AI models for accurate short-term and long-term predictions</p>
+                <a href="{{ url_for('short_term_forecast') }}" class="btn-primary">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/bangalore-weather.png') }}" alt="Bangalore Weather">
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Our Weather Prediction Features</h2>
+            <div class="feature-boxes">
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Short-Term Forecast</h3>
+                    <p>Accurate 7-day weather predictions using our Bayesian Neural Network model</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Long-Term Forecast</h3>
+                    <p>Six-month climate outlook powered by our advanced ensemble prediction system</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Current weather conditions with hourly updates from reliable data sources</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Weather trends and patterns analyzed using our custom physics-based neural networks</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2>About Namma Weather AI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Namma Weather AI is a cutting-edge weather prediction system specifically designed for Bangalore. Our system combines multiple AI models including Bayesian Neural Networks, Physics-based Neural Networks, and Ensemble models to provide highly accurate forecasts.</p>
+                    <p>We use historical weather data, real-time observations, and advanced machine learning techniques to deliver reliable predictions that help you plan your activities with confidence.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Namma Weather AI</h3>
+                    <p>Intelligent weather forecasting for Bangalore</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="{{ url_for('short_term_forecast') }}">Forecast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Email: info@nammaweatherai.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Namma Weather AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+<main>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Accurate Weather Forecasts for Bangalore</h2>
+            <p>Get reliable weather predictions powered by advanced AI models</p>
+            
+            <div class="forecast-buttons">
+                <a href="{{ url_for('short_term_forecast') }}" class="btn btn-primary">
+                    <i class="fas fa-cloud-sun"></i> 7-Day Forecast
+                </a>
+                <a href="{{ url_for('long_term.long_term_forecast') }}" class="btn btn-secondary">
+                    <i class="fas fa-calendar-alt"></i> 6-Month Forecast
+                </a>
+            </div>
+        </div>
+        
+        <div class="current-weather-summary">
+            <!-- Current weather summary content -->
+        </div>
+    </section>
+    
+    <div class="feature-boxes">
+        <div class="feature-box">
+            <div class="icon">
+                <i class="fas fa-cloud-sun"></i>
+            </div>
+            <h3>Short-Term Forecast</h3>
+            <p>Accurate 7-day weather predictions using our Bayesian Neural Network model</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Long-Term Forecast</h3>
+            <p>Six-month climate outlook powered by our advanced ensemble prediction system</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Real-Time Updates</h3>
+            <p>Current weather conditions with hourly updates from reliable data sources</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>AI-Powered Insights</h3>
+            <p>Weather trends and patterns analyzed using our custom physics-based neural networks</p>
+        </div>
+    </div>
+</main>

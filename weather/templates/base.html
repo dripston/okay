@@ -1,0 +1,29 @@
+<!-- Add this in your head section if not already present -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Add this script to remove the generate forecast button -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Remove by ID
+        const btnById = document.getElementById('generate-forecast-btn');
+        if (btnById) btnById.remove();
+        
+        // Remove by text content
+        document.querySelectorAll('button, a').forEach(el => {
+            if (el.textContent.includes('Generate') && el.textContent.includes('Forecast')) {
+                el.remove();
+            }
+        });
+        
+        // Remove by class
+        document.querySelectorAll('.generate-forecast-btn, .btn-generate-forecast, .forecast-btn').forEach(el => {
+            el.remove();
+        });
+        
+        // Remove container elements that might be wrapping the button
+        document.querySelectorAll('.generate-forecast-container, .forecast-button-container, .forecast-actions').forEach(el => {
+            el.remove();
+        });
+    });
+</script>
