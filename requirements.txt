@@ -1,11 +1,4 @@
-torch==2.6.0
-torchvision==0.21.0
-torchaudio==2.6.0
-torch-geometric==2.6.1
-torch_cluster==1.6.3
-torch_scatter==2.1.2
-torch_sparse==0.6.18
-torch_spline_conv==1.2.2
+
 
 absl-py==2.2.2
 aiofiles==24.1.0
@@ -171,7 +164,6 @@ ultralytics-thop==2.0.14
 uritemplate==4.1.1
 urllib3==2.3.0
 uvicorn==0.34.0
--e git+https://github.com/dripston/agent-2.git@ab50f90b3742d87b81a1d74f03ae637a409a0c36#egg=weather_prediction
 Werkzeug==3.1.3
 wheel==0.45.1
 wrapt==1.17.2
